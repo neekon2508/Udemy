@@ -230,3 +230,44 @@ const adventureBooks = books
   .filter((books) => books.genres.includes("adventure"))
   .map((book) => book.title);
 adventureBooks;
+//Array reduce method
+const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+pagesAllBooks;
+//Array sort method
+const arr = [3, 7, 1, 9, 6];
+// const sorted = arr.sort((a, b) => b - a);
+const sorted = arr.slice().sort((a, b) => a - b);
+sorted;
+arr;
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPages;
+//Immutable Arrays
+////Add book abject to array
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J.K.Rowling",
+};
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+////Delete book object from array
+const bookAfterDelete = books.filter((book) => book.id !== 3);
+bookAfterDelete;
+////Update book object in the array
+const booksAfterUpdate = bookAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1 } : book
+);
+booksAfterUpdate;
+//Asynchrnous JS: Promises
+// fetch("https://jsonplaceholder.typicode.com/todos")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+//Asynchronous JS: async/await
+async function getTodos() {
+  const res = await fetch("http://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  return data;
+}
+const todos = getTodos();
+console.log(todos);
