@@ -7,6 +7,15 @@ const messages = [
 ];
 
 export default function App() {
+  return (
+    <div>
+      <Steps />
+      <Steps />
+    </div>
+  );
+}
+
+function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
 
@@ -31,7 +40,7 @@ export default function App() {
           </div>
 
           <p className="message">
-            Step {step}: {messages[step - 1]}{" "}
+            Step {step}: {messages[step - 1]}
           </p>
 
           <div className="buttons">
